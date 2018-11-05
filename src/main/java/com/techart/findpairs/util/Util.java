@@ -31,7 +31,6 @@ public class Util {
 
     public static int[][] getMatrix(List<User> userList){
         int[][] costMatrix = new int[userList.size()][userList.size()];
-        boolean [][] viseted = new boolean[userList.size()][userList.size()];
 
         for (int i = 0; i < userList.size(); i++) {
             for (int j = 0; j < userList.size(); j++) {

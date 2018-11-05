@@ -12,12 +12,6 @@ import java.util.List;
 @RequestMapping("/")
 public class PairsController {
 
-    @PutMapping("/user")
-    public User getUser(@Valid @RequestBody User user)
-    {
-        return user;
-    }
-
     @PutMapping("/findpairs")
     public int[][] findPairs(@Valid @RequestBody List<User> users)
     {

@@ -134,7 +134,7 @@ public class Util {
         {
             for (int j = 0; j < values.length; j++)
             {
-                if (i ==j)
+                if (i == j)
                     values[i][j] = SAME_USER;
             }
         }

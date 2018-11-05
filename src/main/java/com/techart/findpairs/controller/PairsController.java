@@ -22,9 +22,16 @@ public class PairsController {
     @PutMapping("/values")
     public String maxRow(@Valid @RequestBody List<User> users)
     {
+        StringBuilder stringBuilder = new StringBuilder();
         int[][] matrix = Util.getMatrix(users);
         Algorithm algorithm = new Algorithm(matrix);
         algorithm.execute();
-        return algorithm.resultToString(algorithm.getResult());
+        int [] result = algorithm.getResult();
+        for (int i =0; i < result.length; i++)
+        {
+            stringBuilder.append(users.get(i).getName() + " -  " + users.get(result[i]).getName() + " interests = "
+                    + Util.getEqualsInterests(users.get(i).getInterests(), users.get(result[i]).getInterests()) +"\n");
+        }
+        return stringBuilder.toString();
     }
 }

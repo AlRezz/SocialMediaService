@@ -15,12 +15,6 @@ import java.util.List;
 public class PairsController {
 
     @PutMapping("/findpairs")
-    public int[][] findPairs(@Valid @RequestBody List<User> users)
-    {
-        return Util.getMatrix(users);
-    }
-
-    @PutMapping("/values")
     public ResponseEntity<String> maxRow(@Valid @RequestBody List<User> users)
     {
         String pairToString = "";

@@ -1,6 +1,7 @@
 package com.techart.findpairs.util;
 
 import com.techart.findpairs.model.User;
+import com.techart.findpairs.model.UserPair;
 
 import javax.jws.soap.SOAPBinding;
 import java.util.ArrayList;
@@ -149,19 +150,17 @@ public class Util {
         }
     }
 
-    public static String pairToString(List<User> users, int[] result){
-        StringBuilder stringBuilder = new StringBuilder();
-        List<User> used = new ArrayList<>();
+    public static List<String> getUserPairs(List<User> users, int[] result){
+        List<String> userPairs = new ArrayList<>();
         for (int i =0; i < result.length; i++)
         {
             if (result[i] != -1)
             {
-                used.add(users.get(i));
-                used.add(users.get(result[i]));
-                stringBuilder.append(users.get(i).getName() + " -  " + users.get(result[i]).getName() + " interests = "
-                        + Util.getEqualsInterests(users.get(i).getInterests(), users.get(result[i]).getInterests()) +"\n");
+                UserPair userPair = new UserPair(users.get(i), users.get(result[i]),
+                        Util.getEqualsInterests(users.get(i).getInterests(), users.get(result[i]).getInterests()));
+                userPairs.add(userPair.toString());
             }
         }
-        return stringBuilder.toString();
+        return userPairs;
     }
 }

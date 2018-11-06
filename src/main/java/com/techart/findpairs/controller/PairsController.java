@@ -2,12 +2,14 @@ package com.techart.findpairs.controller;
 
 import com.techart.findpairs.algorithm.Algorithm;
 import com.techart.findpairs.model.User;
+import com.techart.findpairs.model.UserPair;
 import com.techart.findpairs.util.Util;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -15,20 +17,13 @@ import java.util.List;
 public class PairsController {
 
     @PutMapping("/findpairs")
-    public ResponseEntity<String> maxRow(@Valid @RequestBody List<User> users)
+    public List<String> maxRow(@Valid @RequestBody List<User> users)
     {
-        String pairToString = "";
+        List<String> pairToString = new ArrayList<>();
         int[][] matrix = Util.getMatrix(users);
         Algorithm algorithm = new Algorithm(matrix);
         algorithm.execute();
-        try
-        {
-            pairToString = Util.pairToString(users, algorithm.getResult());
-        }
-        catch (Exception e)
-        {
-            return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body("Error");
-        }
-        return ResponseEntity.ok(pairToString);
+
+        return  Util.getUserPairs(users, algorithm.getResult());
     }
 }

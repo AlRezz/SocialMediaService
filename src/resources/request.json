@@ -1,0 +1,14 @@
+[{
+		"name": "Jane",
+		"interests": ["movies", "music"]
+	}, {
+		"name": "Peter",
+		"interests": ["cars", "movies"]
+	}, {
+		"name": "Dustin",
+		"interests": ["cars", "movies", "hiking", "music"]
+	}, {
+		"name": "Lana",
+		"interests": ["cars", "dancing"]
+	}
+]

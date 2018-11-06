@@ -1,6 +1,5 @@
 package com.techart.findpairs.model;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class UserPair

@@ -3,7 +3,6 @@ package com.techart.findpairs.algorithm;
 import com.techart.findpairs.util.Util;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Algorithm {

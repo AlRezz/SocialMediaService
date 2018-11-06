@@ -2,6 +2,7 @@ package com.techart.findpairs.util;
 
 import com.techart.findpairs.model.User;
 
+import javax.jws.soap.SOAPBinding;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -51,11 +52,10 @@ public class Util {
         for(int row=0; row<values.length;row++){
             rowMinValues[row] = values[row][0];
             for(int col=1; col<values.length;col++){
-                if(values[row][col] < rowMinValues[row] && row != col)
+                if(values[row][col] < rowMinValues[row])
                     rowMinValues[row] = values[row][col];
             }
         }
-        System.out.println("row min is " + rowMinValues);
         return rowMinValues;
     }
 
@@ -65,11 +65,10 @@ public class Util {
         for(int col=0; col<values.length;col++){
             colMinValues[col] = values[0][col];
             for(int row=1; row < values.length; row++){
-                if(values[row][col] < colMinValues[col] && row != col)
+                if(values[row][col] < colMinValues[col])
                     colMinValues[col] = values[row][col];
             }
         }
-        System.out.println("col min is " + colMinValues);
         return colMinValues;
     }
 
@@ -109,7 +108,7 @@ public class Util {
         {
             for (int j = 0; j < values.length; j++)
             {
-                values[i][j] -= colMinValues[i];
+                values[j][i] -= colMinValues[i];
             }
         }
     }
@@ -145,9 +144,24 @@ public class Util {
         {
             for (int j = 0; j < values.length; j++)
             {
-                if (i != j)
-                    values[i][j] += maxValue;
+                values[i][j] += maxValue;
             }
         }
+    }
+
+    public static String pairToString(List<User> users, int[] result){
+        StringBuilder stringBuilder = new StringBuilder();
+        List<User> used = new ArrayList<>();
+        for (int i =0; i < result.length; i++)
+        {
+            if (result[i] != -1)
+            {
+                used.add(users.get(i));
+                used.add(users.get(result[i]));
+                stringBuilder.append(users.get(i).getName() + " -  " + users.get(result[i]).getName() + " interests = "
+                        + Util.getEqualsInterests(users.get(i).getInterests(), users.get(result[i]).getInterests()) +"\n");
+            }
+        }
+        return stringBuilder.toString();
     }
 }

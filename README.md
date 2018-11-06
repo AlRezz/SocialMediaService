@@ -21,6 +21,7 @@ To avoid problems
     
     Misc
 POST http://{server}/findpairs
+
 server - address of server
 
 Request example src/resources/request.json

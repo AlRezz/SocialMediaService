@@ -16,6 +16,7 @@ public class AlgorithmTest {
     public void matrixSizeTest()
     {
         int[][] matrix = new int[0][0];
+        Algorithm algorithm = new Algorithm(matrix);
     }
 
     @Test

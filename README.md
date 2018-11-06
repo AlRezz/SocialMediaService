@@ -11,5 +11,13 @@ As a microservice, search service can work as an independent application.
     Description
 The Hungarian Method was chosen (as known as Kuhn algorithm), because it is a combinatorial optimization algorithm that solves the assignment problem in polynomial time O(n^3) for square matrix.
 
+    Problems
+If there were be a lot of entries with a huge lists of interests, we would get a low performance  depends on execution.
+We should choose a right isolation level for preventing issues with read and write operations if we stored information in database.        
+To avoid problems 
+   
+   we should use read-only transactions in controllers for reading information.     
+   add cache for result and update it entries based on expiration date  
+    
     Misc
 Request example src/resources/request.json

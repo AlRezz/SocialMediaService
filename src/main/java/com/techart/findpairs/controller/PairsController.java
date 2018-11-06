@@ -12,16 +12,20 @@ import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.util.Objects.isNull;
+
 @RestController
 @RequestMapping("/")
 public class PairsController {
 
     @PutMapping("/findpairs")
-    public List<String> maxRow(@Valid @RequestBody List<User> users)
+    public List<String> findPairs(@Valid @RequestBody List<User> users)
     {
-        List<String> pairToString = new ArrayList<>();
-        int[][] matrix = Util.getMatrix(users);
-        Algorithm algorithm = new Algorithm(matrix);
+        if(isNull(users))
+        {
+            throw new IllegalArgumentException("List can not be empty");
+        }
+        Algorithm algorithm = new Algorithm(Util.getMatrix(users));
         algorithm.execute();
 
         return  Util.getUserPairs(users, algorithm.getResult());

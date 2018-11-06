@@ -17,6 +17,10 @@ public class Algorithm {
 
     public Algorithm (int[][] matrix)
     {
+        if (matrix.length == 0)
+        {
+            throw new IllegalArgumentException("Matrix size should be greater then 0");
+        }
         this.matrix = matrix;
         this.values = new int[this.matrix.length][this.matrix.length];
         this.rows = new int[this.values.length];

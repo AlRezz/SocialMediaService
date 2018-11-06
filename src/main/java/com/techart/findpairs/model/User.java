@@ -1,14 +1,15 @@
 package com.techart.findpairs.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class User {
 
     private String name;
     private List<String> interests;
-    public User (String name, List<String> intersts){
+    public User (String name, List<String> interests){
         this.name = name;
-        this.interests = intersts;
+        this.interests = interests;
     }
 
     public User(){}
@@ -26,7 +27,8 @@ public class User {
     }
 
     public void setInterests(List<String> interests) {
-        this.interests = interests;
+
+        this.interests = (interests != null) ? interests : new ArrayList<>();
     }
 
     @Override

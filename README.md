@@ -20,4 +20,7 @@ To avoid problems
    add cache for result and update it entries based on expiration date  
     
     Misc
+POST http://{server}/findpairs
+server - address of server
+
 Request example src/resources/request.json

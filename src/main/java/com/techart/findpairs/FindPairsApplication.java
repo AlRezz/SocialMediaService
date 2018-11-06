@@ -6,9 +6,9 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @SpringBootApplication
-public class FindpairsApplication {
+public class FindPairsApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(FindpairsApplication.class, args);
+        SpringApplication.run(FindPairsApplication.class, args);
     }
 }

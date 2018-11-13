@@ -13,7 +13,7 @@ import static java.util.Objects.isNull;
 @RequestMapping("/")
 public class PairsController {
 
-    @PutMapping("/findpairs")
+    @PostMapping("/findpairs")
     public List<String> findPairs(@Valid @RequestBody List<User> users)
     {
         if(isNull(users))

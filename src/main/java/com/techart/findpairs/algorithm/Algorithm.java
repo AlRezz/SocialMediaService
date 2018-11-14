@@ -134,7 +134,7 @@ public class Algorithm
         numLines++;
     }
 
-    public void createAdditionalZeros()
+    private void createAdditionalZeros()
     {
         int minUncoveredValue = 0;
 

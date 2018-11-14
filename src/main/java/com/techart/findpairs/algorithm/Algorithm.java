@@ -85,7 +85,7 @@ public class Algorithm
         return rows;
     }
 
-    public void countLinesWithZeroValue()
+    private void countLinesWithZeroValue()
     {
         numLines = 0;
         lines = new int[values.length][values.length];

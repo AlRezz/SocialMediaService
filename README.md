@@ -18,6 +18,7 @@ To avoid problems
    choose a right isolation level for preventing issues  
    use read-only transactions in controllers for reading information.     
    add cache for result and update it entries based on expiration date  
+   use in-memory data storage
     
     Misc
 POST http://{server}/findpairs

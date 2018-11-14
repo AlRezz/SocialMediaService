@@ -11,7 +11,8 @@ import static java.util.Objects.isNull;
 
 @RestController
 @RequestMapping("/")
-public class PairsController {
+public class PairsController
+{
 
     @PostMapping("/findpairs")
     public List<String> findPairs(@Valid @RequestBody List<User> users)

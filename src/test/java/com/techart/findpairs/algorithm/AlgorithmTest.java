@@ -4,7 +4,6 @@ import com.techart.findpairs.model.User;
 import com.techart.findpairs.util.Util;
 import org.junit.Test;
 
-import javax.validation.constraints.AssertTrue;
 import java.util.ArrayList;
 import java.util.List;
 

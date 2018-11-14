@@ -7,7 +7,8 @@ public class User {
 
     private String name;
     private List<String> interests;
-    public User (String name, List<String> interests){
+    public User (String name, List<String> interests)
+    {
         this.name = name;
         this.interests = interests;
     }
@@ -32,7 +33,8 @@ public class User {
     }
 
     @Override
-    public String toString() {
+    public String toString()
+    {
         return "User{" +
                 "name='" + name + '\'' +
                 ", interests=" + interests +

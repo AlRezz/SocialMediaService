@@ -5,7 +5,8 @@ import com.techart.findpairs.util.Util;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Algorithm {
+public class Algorithm
+{
 
     private int[][] matrix;
     private int[][] values;
@@ -46,8 +47,10 @@ public class Algorithm {
         if (!viseted.contains(row))
         {
             viseted.add(row);
-            for(int i = 0; i < values.length; i ++){
-                if(values[row][i] == 0 && used[i] == 0){
+            for(int i = 0; i < values.length; i ++)
+            {
+                if(values[row][i] == 0 && used[i] == 0)
+                {
                     rows[row] = i;
                     used[i] = 1;
                     viseted.add(i);
@@ -57,7 +60,8 @@ public class Algorithm {
                 }
             }
         }
-        else{
+        else
+        {
             rows[row] = -1;
             calculate(row+1);
         }
@@ -86,8 +90,10 @@ public class Algorithm {
         numLines = 0;
         lines = new int[values.length][values.length];
 
-        for(int i = 0; i < values.length; i ++){
-            for(int j = 0; j < values.length; j ++){
+        for(int i = 0; i < values.length; i ++)
+        {
+            for(int j = 0; j < values.length; j ++)
+            {
                 if(values[i][j] == 0)
                     markCell(i, j, checkDirection(i, j));
             }
@@ -97,7 +103,8 @@ public class Algorithm {
     private int checkDirection(int row, int col)
     {
         int result = 0;
-        for(int i=0; i<values.length;i++){
+        for(int i=0; i<values.length;i++)
+        {
             if(values[i][col] == 0)
                 result++;
             if(values[row][i] == 0)
@@ -131,15 +138,19 @@ public class Algorithm {
     {
         int minUncoveredValue = 0;
 
-        for(int i = 0; i < values.length; i ++){
-            for(int j =0; j < values.length; j ++){
+        for(int i = 0; i < values.length; i ++)
+        {
+            for(int j =0; j < values.length; j ++)
+            {
                 if(lines[i][j] == 0 && (values[i][j] < minUncoveredValue || minUncoveredValue == 0))
                     minUncoveredValue = values[i][j];
             }
         }
 
-        for(int k = 0; k <values.length; k ++){
-            for(int n = 0; n < values.length; n++){
+        for(int k = 0; k <values.length; k ++)
+        {
+            for(int n = 0; n < values.length; n++)
+            {
                 if(lines[k][n] == 0)
                 {
                     values[k][n] -= minUncoveredValue;

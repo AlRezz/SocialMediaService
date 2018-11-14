@@ -29,7 +29,7 @@ public class Algorithm
         this.used = new int[this.values.length];
     }
 
-    public void prepare()
+    private void prepare()
     {
         Util.setNegativeValues(matrix, values);
         int maxValue = Util.getMaxElement(values);

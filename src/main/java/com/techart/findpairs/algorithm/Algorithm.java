@@ -39,7 +39,8 @@ public class Algorithm {
         Util.subtractColMinValue(values, colsMinimal);
     }
 
-    private boolean calculate(int row){
+    private boolean calculate(int row)
+    {
         if(row == rows.length)
             return true;
         if (!viseted.contains(row))
@@ -80,7 +81,8 @@ public class Algorithm {
         return rows;
     }
 
-    public void countLinesWithZeroValue(){
+    public void countLinesWithZeroValue()
+    {
         numLines = 0;
         lines = new int[values.length][values.length];
 
@@ -92,7 +94,8 @@ public class Algorithm {
         }
     }
 
-    private int checkDirection(int row, int col){
+    private int checkDirection(int row, int col)
+    {
         int result = 0;
         for(int i=0; i<values.length;i++){
             if(values[i][col] == 0)
@@ -103,7 +106,8 @@ public class Algorithm {
         return result;
     }
 
-    private void markCell(int row, int col, int maxVH){
+    private void markCell(int row, int col, int maxVH)
+    {
         if(lines[row][col] == 2)
             return;
 
@@ -123,7 +127,8 @@ public class Algorithm {
         numLines++;
     }
 
-    public void createAdditionalZeros(){
+    public void createAdditionalZeros()
+    {
         int minUncoveredValue = 0;
 
         for(int i = 0; i < values.length; i ++){
